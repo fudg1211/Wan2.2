@@ -11,12 +11,9 @@ WORKDIR /app
 COPY . .
 
 RUN pip install --upgrade pip \
- && pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --extra-index-url https://download.pytorch.org/whl/cu124
- 
-RUN pip install --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt
 RUN pip install flask
-RUN pip install flash_attn
+RUN pip install flash_attn==2.7.3
 
 RUN pip install "huggingface_hub[cli]"
 RUN huggingface-cli download Wan-AI/Wan2.2-T2V-A14B --local-dir ./Wan2.2-T2V-A14B
