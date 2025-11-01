@@ -11,6 +11,9 @@ WORKDIR /app
 COPY . .
 
 RUN pip install --upgrade pip \
+ && pip install torch==2.4.0 torchvision==0.19.0 torchaudio==2.4.0 --extra-index-url https://download.pytorch.org/whl/cu124
+ 
+RUN pip install --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt
 RUN pip install flask
 RUN pip install flash_attn
