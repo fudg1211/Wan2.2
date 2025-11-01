@@ -12,6 +12,13 @@ COPY . .
 
 RUN pip install --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt
+RUN pip install flask
+
+RUN pip install "huggingface_hub[cli]"
+RUN huggingface-cli download Wan-AI/Wan2.2-T2V-A14B --local-dir ./Wan2.2-T2V-A14B
+RUN huggingface-cli download Wan-AI/Wan2.2-Animate-14B --local-dir ./Wan2.2-Animate-14B
+RUN huggingface-cli download Wan-AI/Wan2.2-I2V-A14B --local-dir ./Wan2.2-I2V-A14B
+
 
 EXPOSE 7001
 CMD ["python3", "app.py"]
