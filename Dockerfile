@@ -13,6 +13,7 @@ COPY . .
 RUN pip install --upgrade pip \
  && pip install --no-cache-dir -r requirements.txt
 RUN pip install flask
+RUN pip install flash_attn
 
 RUN pip install "huggingface_hub[cli]"
 RUN huggingface-cli download Wan-AI/Wan2.2-T2V-A14B --local-dir ./Wan2.2-T2V-A14B
